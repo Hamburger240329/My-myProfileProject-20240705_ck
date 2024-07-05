@@ -4,18 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/css/title.css">
 <title>My Profile</title>
 </head>
 <body>
 	<table border="0", cellpadding="20" cellspacing="0">
 		<tr>
 			<td align="center">
-				<span class="title_text01">홈페이지 프로젝트 제목입니다</span>
+				<span class="title_text01">Spring Boot Project</span>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<span class="title_text02">안녕하세요 메인 홈페이지 내용입니다</span>
+				<span class="title_text02">Spring Boot home</span>
 			</td>
 		</tr>
 		<tr>
