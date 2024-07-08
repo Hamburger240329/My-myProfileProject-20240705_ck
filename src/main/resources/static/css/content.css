@@ -10,11 +10,20 @@ span.content_text {
 
 input.input_box01 {
 	border : 1px solid #3D550C;
-	widows: 250px;
+	width: 250px;
 	font-family: Arial;
 	font-size: 20px; 
 	padding : 5px;
 }
+
+input.input_box02 {
+	border : 1px solid #3D550C;
+	width: 500px;
+	font-family: Arial;
+	font-size: 20px; 
+	padding : 5px;
+}
+
 
 input.btn01 {
 	border : 2px solid #3D550C;
@@ -41,3 +50,13 @@ input.btn01:hover {
 	background-color: #6f7e16;
 	cursor: pointer;
 }
+
+textarea.text_area {
+	border : 1px solid #3D550C;
+	font-family: malgun, Arial; 
+	font-size: 20px;
+	padding: 5px;
+	width:500px; 
+	
+}
+

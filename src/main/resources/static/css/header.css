@@ -11,6 +11,13 @@ span.menu{
 }
 
 
+span.loginid{
+	color: #3D550C;
+	font-family: Arial;
+	font-size: 20;
+	font-weight:bold;
+}
+
 a:link {
 	text-decoration: none;
 	color: inherit;

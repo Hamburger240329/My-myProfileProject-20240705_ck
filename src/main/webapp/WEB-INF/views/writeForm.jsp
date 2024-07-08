@@ -24,57 +24,58 @@
 		</tr>
 		<tr>
 			<td class="content_box" align="center">
-			<form action="joinOk" method="post" name="joinForm">
+			<form action="writeOk" name="writeForm">
 				<table border="0" cellpadding="10" cellspacing="0">
 						<tr>
 							<td align="right">
 								<span class="content_text">아 이 디 :</span>  
 							</td>
 							<td>
-								<input class="input_box01" type="text" name="mid">
+								<input class="input_box01" type="text" name="bid">
 							</td>
 						</tr>
+						<tr>
 						<tr>
 							<td align="right">
-								<span class="content_text">비밀번호 :</span>  
+								<span class="content_text">이 름 :</span>  
 							</td>
 							<td>
-								<input class="input_box01" type="password" name="mpw">
+								<input class="input_box01" type="text" name="bname">
 							</td>
 						</tr>
 						<tr>
-							<td align="right">
-								<span class="content_text">비밀번호확인:</span>  
-							</td>
-							<td>
-								<input class="input_box01" type="password" name="mpwCheck">
-							</td>
-						</tr>
-						<tr>
-							<td align="right">
-								<span class="content_text">회원이름 :</span>  
-							</td>
-							<td>
-								<input class="input_box01" type="text" name="mname">
-							</td>
-						</tr>
-						<tr>
+						
+						
 							<td align="right">
 								<span class="content_text">이 메 일 :</span>  
 							</td>
 							<td>
-								<input class="input_box01" type="text" name="memail">
+								<input class="input_box01" type="text" name="bemail">
 							</td>
 						</tr>
-						
-						
+						<tr>
+							<td align="right">
+								<span class="content_text">제 목 :</span>  
+							</td>
+							<td>
+								<input class="input_box02" type="text" name="btetle">
+							</td>
+						</tr>
+						<tr>
+							<td align="right" valign="top">
+								<span class="content_text">내 용 :</span>  
+							</td>
+							<td>
+								<textarea class="text_area" rows="10" coler="50" name="bcontent"></textarea>
+							</td>
+						</tr>
 						<tr>
 							<td colspan="2">&nbsp;</td>
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input class="btn01" type="submit" value="가입완료">
-								<input class="btn01" type="button" value="로그인"  onclick="javascript:window.location.href='login'">
+								<input class="btn01" type="submit" value="작성완료">
+								<input class="btn01" type="button" value="취소" onclick="javascript:window.location.href='list'">
 							</td>
 						</tr>
 					</table>
