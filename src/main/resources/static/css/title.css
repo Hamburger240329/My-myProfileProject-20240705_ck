@@ -19,13 +19,13 @@ span.title_text02 {
 }	
 
 span.skill_text01 {
-	font-size : 50px;
+	font-size : 70px;
 	color: #535E4B;
 	font-family: Arial;
 	font-weight: bold;
 }
 span.skill_text02 {
-	font-size : 25px;
+	font-size : 30px;
 	color: #C1C2AD;
 	font-family: Arial;
 	font-weight: bold;
@@ -36,6 +36,6 @@ td.skill_box {
 }
 
 td.image_box {
-	background-color: #E9E6E2;
+	background-color: #535E4B
 }
 
