@@ -16,18 +16,17 @@
 			history.go(-1);
 		</script>
 	</c:if>
-	
 	<%@ include file="include/header.jsp" %>
 	<center>
 	<table border="0" cellpadding="20" cellspacing="0">
 		<tr>
 			<td align="center">
-				<span class="title_text01">DEVELOPER GYOJIN's PROFILE</span>
+				<span class="title_text01">Spring Boot Project</span>
 			</td>
 		</tr>
 		<tr>
 			<td align="center">
-				<span class="title_text02">I'm Gyojin Lee, a developer who wants a development job. Please call me back.</span>
+				<span class="title_text02">Spring Boot home</span>
 			</td>
 		</tr>
 		<tr>

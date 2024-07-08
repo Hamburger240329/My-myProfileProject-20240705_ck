@@ -34,7 +34,7 @@
 						<a href="logout"><span class="menu">LOGOUT</span></a>
 					</td>
 					<td width="5%">
-						<a href="Modify"><span class="menu">MODIFY</span></a>
+						<a href="modify"><span class="menu">MODIFY</span></a>
 					</td>
 				</c:otherwise>
 			</c:choose>

@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ham1142.Profile.dao.MemberDao;
 import com.ham1142.Profile.dto.MemberDto;
@@ -63,6 +63,7 @@ public class ProfileController {
 	public String list() {
 		return "boardlist";
 	}
+	
 	@PostMapping(value = "/joinOk")
 	public String joinOk(HttpServletRequest request, Model model) {
 		
@@ -129,13 +130,13 @@ public class ProfileController {
 		
 		String sid = (String) session.getAttribute("sessionId");
 		// 현재 로그인한 회원의 아이디
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);	
+			
+		MemberDto memberDto = memberDao.getMemberInfoDao(sid);//현재 로그인한 회원의 모든 정보
 		
-		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);		
-		MemberDto memberdto = memberDao.getMemberInfoDao(sid);//현재 로그인한 회원의 모든 정보
+		model.addAttribute("mDto", memberDto);
 		
-		model.addAttribute("mDto","");
-		
-		return "modifyForm";
+		return "modifyFrom";
 		
 		
 	}

@@ -67,8 +67,6 @@
 								<input class="input_box01" type="text" name="memail">
 							</td>
 						</tr>
-						
-						
 						<tr>
 							<td colspan="2">&nbsp;</td>
 						</tr>

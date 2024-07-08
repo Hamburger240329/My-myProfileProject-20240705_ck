@@ -11,7 +11,7 @@
 <body>
 	<%@ include file="include/header.jsp" %>
 	<center>
-	<table border="0", cellpadding="20" cellspacing="0">
+	<table border="0" cellpadding="20" cellspacing="0">
 		<tr>
 			<td align="center">
 				<span class="title_text01">Spring Boot Project</span>
@@ -35,7 +35,6 @@
 							</td>
 						</tr>
 						<tr>
-						<tr>
 							<td align="right">
 								<span class="content_text">이 름 :</span>  
 							</td>
@@ -44,8 +43,6 @@
 							</td>
 						</tr>
 						<tr>
-						
-						
 							<td align="right">
 								<span class="content_text">이 메 일 :</span>  
 							</td>
@@ -58,7 +55,7 @@
 								<span class="content_text">제 목 :</span>  
 							</td>
 							<td>
-								<input class="input_box02" type="text" name="btetle">
+								<input class="input_box02" type="text" name="btitle">
 							</td>
 						</tr>
 						<tr>

@@ -11,7 +11,7 @@
 <body>
 	<%@ include file="include/header.jsp" %>
 	<center>
-	<table border="0", cellpadding="20" cellspacing="0">
+	<table border="0" cellpadding="20" cellspacing="0">
 		<tr>
 			<td align="center">
 				<span class="title_text01">Spring Boot Project</span>
@@ -32,7 +32,7 @@
 								</span>  
 							</td>
 						</tr>
-					</table>
+				</table>
 			</td>
 		</tr>
 	</table>	

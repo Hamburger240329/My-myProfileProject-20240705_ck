@@ -49,7 +49,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" align="center">
-								<input class="btn01" type="button" value="로그인" onclick="loginCheck()>
+								<input class="btn01" type="button" value="로그인" onclick="loginCheck()">
 								<input class="btn01" type="button" value="회원가입" onclick="javascript:window.location.href='join'">
 							</td>
 						</tr>

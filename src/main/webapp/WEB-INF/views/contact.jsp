@@ -32,7 +32,7 @@
 								</span>  
 							</td>
 						</tr>
-					</table>
+				</table>
 			</td>
 		</tr>
 	</table>	

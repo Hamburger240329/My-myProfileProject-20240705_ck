@@ -12,7 +12,7 @@
 <body>
 	<%@ include file="include/header.jsp" %>
 	<center>
-	<table border="0", cellpadding="20" cellspacing="0">
+	<table border="0" cellpadding="20" cellspacing="0">
 		<tr>
 			<td align="center">
 				<span class="title_text01">Spring Boot Project</span>
@@ -67,8 +67,6 @@
 								<input class="input_box01" type="text" name="memail" value="${mDto.memail }">
 							</td>
 						</tr>
-						
-						
 						<tr>
 							<td colspan="2">&nbsp;</td>
 						</tr>
