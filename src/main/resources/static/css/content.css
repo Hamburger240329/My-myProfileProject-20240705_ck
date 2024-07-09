@@ -16,6 +16,15 @@ input.input_box01 {
 	padding : 5px;
 }
 
+input.input_box01_view {
+	border : 1px solid #3D550C;
+	width: 250px;
+	font-family: Arial;
+	font-size: 20px; 
+	padding : 5px;
+	background-color: #f0f0b4;
+}
+
 input.input_box02 {
 	border : 1px solid #3D550C;
 	width: 500px;
@@ -24,6 +33,14 @@ input.input_box02 {
 	padding : 5px;
 }
 
+input.input_box02_view {
+	border : 1px solid #3D550C;
+	width: 500px;
+	font-family: Arial;
+	font-size: 20px; 
+	padding : 5px;
+	background-color: #f0f0b4;
+}
 
 input.btn01 {
 	border : 2px solid #3D550C;
@@ -57,6 +74,14 @@ textarea.text_area {
 	font-size: 20px;
 	padding: 5px;
 	width:500px; 
-	
 }
 
+textarea.text_area_view {
+	border : 1px solid #3D550C;
+	font-family: malgun, Arial; 
+	font-size: 20px;
+	padding: 5px;
+	width:500px; 
+	background-color: #f0f0b4;
+	
+}
