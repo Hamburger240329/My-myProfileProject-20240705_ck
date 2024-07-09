@@ -55,9 +55,42 @@ public class ProfileController {
 	}
 	
 	@GetMapping (value = "/write")
-	public String write() {
+	public String write(Model model, HttpSession session, HttpServletResponse response) {
+		
+		String sid = (String) session.getAttribute("sessionId");
+		// 현재 로그인한 회원의 아이디
+		
+		if(sid == null) {//참이면 로그인하지 않은 회원이 글쓰기 버튼을 클릭한 경우
+			try {
+				response.setContentType("text/html;charset=utf-8");//경고창 텍스트를 utf-8로 인코딩
+				response.setCharacterEncoding("utf-8");
+				PrintWriter printWriter = response.getWriter();
+				printWriter.println("<script>alert('"+"로그인한 회원만 글을 쓰실 수 있습니다?"+"');location.href='"+"login"+"';</script>");
+				printWriter.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {//로그인한 회원이 글쓰기 버튼을 클릭한 경우
+			MemberDao memberDao = sqlSession.getMapper(MemberDao.class);	
+			
+			MemberDto memberDto = memberDao.getMemberInfoDao(sid);//현재 로그인한 회원의 모든 정보
+			
+			model.addAttribute("mDto", memberDto);
+
+		}
+		
 		return "writeForm";
 	}
+	
+	@GetMapping (value = "/writeOk")
+	public String writeOk(HttpServletRequest response, Model model) {
+		
+		
+		return "redirect:list";
+	}
+	
+	
 	
 	@GetMapping (value = "/list")
 	public String list() {
