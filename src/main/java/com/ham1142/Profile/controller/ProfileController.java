@@ -137,7 +137,20 @@ public class ProfileController {
 		model.addAttribute("mDto", memberDto);
 		
 		return "modifyFrom";
+	}
+	
+	@PostMapping(value = "/modifyOk")
+	public String modifyOk(HttpServletRequest request, Model model) {
 		
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);	
+		
+		memberDao.modifyInfoDao(request.getParameter("mid"), request.getParameter("mpw"), request.getParameter("mname"), request.getParameter("memail"));
+		
+		MemberDto memberDto = memberDao.getMemberInfoDao(request.getParameter("mid"));//현재 로그인한 회원의 모든 정보
+		
+		model.addAttribute("mDto", memberDto);
+		
+		return "modifyOk";
 		
 	}
 	

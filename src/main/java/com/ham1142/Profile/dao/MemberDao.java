@@ -11,5 +11,9 @@ public interface MemberDao {
 	public int loginCheckDao(String mid, String mpw); // 로그인 체크
 	
 	public MemberDto getMemberInfoDao(String mid);//아이디로 검색해서 회원정보 가져오기
+
+	public void modifyInfoDao(String mid, String mpw, String mname, String memail);//회원 정보 수정
+	
+	
 	
 }
