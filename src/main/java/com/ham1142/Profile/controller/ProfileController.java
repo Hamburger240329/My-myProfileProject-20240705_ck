@@ -268,4 +268,38 @@ public class ProfileController {
 		
 		return "redirect:list";
 	}
+	
+	@GetMapping(value = "/contentDelete")
+	public String contentDelete(HttpServletRequest request, Model model, HttpSession session, HttpServletResponse response) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);	
+		MemberDao memberDao = sqlSession.getMapper(MemberDao.class);	
+
+		String sid = (String) session.getAttribute("sessionId"); // 현재 로그인 중인 아이디
+		
+		BoardDto bDto = boardDao.contentViewDao(request.getParameter("bnum"));
+
+		if (sid.equals(bDto.getBid()) || (sid.equals("admin"))) {// 참이면 글을 쓴 회원과 현재 로그인 중인 아이디가 일치 -> 수정, 삭제 가능
+			
+			boardDao.contentDeleteDao(request.getParameter("bnum"));
+			
+		} else {// 글을 쓴 회원과 현재 로그인 한 아이디가 다르므로 수정 삭제 권한 X
+			
+			//컨트롤러에서 경고창 띄우기
+			try {
+				response.setContentType("text/html;charset=utf-8");//경고창 텍스트를 utf-8로 인코딩
+				response.setCharacterEncoding("utf-8");
+				PrintWriter printWriter = response.getWriter();
+				printWriter.println("<script>alert('"+"글 삭제는 글을 쓴 회원 또는 관리자만 가능합니다!"+"');history.go(-1);</script>");
+				printWriter.flush();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		return "redirect:list";
+	}
+
+	
 }

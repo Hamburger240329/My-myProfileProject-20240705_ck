@@ -15,4 +15,5 @@ public interface BoardDao {
 	
 	public void contentModifyDao(String bnum, String btitle, String bcontent);//글 수정
 	
+	public void contentDeleteDao(String bnum); // 글 삭제
 }

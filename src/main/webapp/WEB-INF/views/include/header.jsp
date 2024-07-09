@@ -16,37 +16,37 @@
 				&nbsp;
 			</td>
 			<td width="4%">
-				<a href="index"><span class="menu">HOME</span></a>
+				<a class="menulink" href="index"><span class="menu">HOME</span></a>
 			</td>
 			
 			<c:choose>
 				<c:when test="${sessionScope.sessionId eq null }">
 					<td width="4%">
-						<a href="login"><span class="menu">LOGIN</span></a>
+						<a class="menulink" href="login"><span class="menu">LOGIN</span></a>
 					</td>
 					<td width="5%">
-						<a href="join"><span class="menu">JOIN</span></a>
+						<a class="menulink" href="join"><span class="menu">JOIN</span></a>
 					</td>
 					
 				</c:when>
 				<c:otherwise>
 					<td width="6%">
-						<a href="logout"><span class="menu">LOGOUT</span></a>
+						<a class="menulink" href="logout"><span class="menu">LOGOUT</span></a>
 					</td>
 					<td width="5%">
-						<a href="modify"><span class="menu">MODIFY</span></a>
+						<a class="menulink" href="modify"><span class="menu">MODIFY</span></a>
 					</td>
 				</c:otherwise>
 			</c:choose>
 			
 			<td width="6%">
-				<a href="profile"><span class="menu">PROFILE</span></a>
+				<a class="menulink" href="profile"><span class="menu">PROFILE</span></a>
 			</td>
 			<td width="5%">
-				<a href="list"><span class="menu">BOARD</span></a>
+				<a class="menulink" href="list"><span class="menu">BOARD</span></a>
 			</td>
 			<td width="5%">
-				<a href="contact"><span class="menu">CONTACT</span></a>
+				<a class="menulink" href="contact"><span class="menu">CONTACT</span></a>
 			</td>
 			<td width="5%">
 				&nbsp;
