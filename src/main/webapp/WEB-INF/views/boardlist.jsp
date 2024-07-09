@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,27 +35,26 @@
 						<th class="board_title" width="55%">제목</th>
 						<th class="board_title" width="15%">등록일</th>
 					</tr>
+					<c:forEach items="${bDtos }" var="bDto">
 					<tr>
-						<td class="board_content" align="center">1</td>
-						<td class="board_content" align="center">tiger</td>
-						<td class="board_content" align="center">홍길동</td>
-						<td class="board_content">가입인사 드립니다</td>
-						<td class="board_content" align="center">2024-07-08</td>
+						<td class="board_content" align="center">${bDto.bnum }</td>
+						<td class="board_content" align="center">${bDto.bid }</td>
+						<td class="board_content" align="center">${bDto.bname }</td>
+						<td class="board_content">
+							<c:choose>
+								<c:when test="${fn:length(bDto.btitle) > 25 }">
+									<c:out value="${fn:substring(bDto.btitle, 0, 22)}"></c:out>...
+								</c:when>
+								<c:otherwise>
+									${bDto.btitle }
+								</c:otherwise>
+							</c:choose>
+						</td>
+						<td class="board_content" align="center">
+							<c:out value="${fn:substring(bDto.bdate, 0, 10)}"></c:out>
+						</td>							
 					</tr>
-					<tr>
-						<td class="board_content">2</td>
-						<td class="board_content">tiger</td>
-						<td class="board_content">홍길동</td>
-						<td class="board_content">가입인사 드립니다</td>
-						<td class="board_content">2024-07-08</td>
-					</tr>
-					<tr>
-						<td class="board_content">3</td>
-						<td class="board_content">tiger</td>
-						<td class="board_content">홍길동</td>
-						<td class="board_content">가입인사 드립니다</td>
-						<td class="board_content">2024-07-08</td>
-					</tr>
+					 </c:forEach>
 					<tr>
 						<td colspan="5" align="right"> 
 							<input class="btn01"  type="button" value="글쓰기" onclick="javascript:window.location.href='write'">

@@ -2,6 +2,7 @@ package com.ham1142.Profile.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,9 +12,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.ham1142.Profile.dao.BoardDao;
 import com.ham1142.Profile.dao.MemberDao;
+import com.ham1142.Profile.dto.BoardDto;
 import com.ham1142.Profile.dto.MemberDto;
 
+import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -84,18 +88,31 @@ public class ProfileController {
 	}
 	
 	@GetMapping (value = "/writeOk")
-	public String writeOk(HttpServletRequest response, Model model) {
+	public String writeOk(HttpServletRequest request, Model model) {
 		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 		
+		boardDao.writeDao(request.getParameter("bid"), request.getParameter("bname"), request.getParameter("btitle"), request.getParameter("bcontent"));
+				
 		return "redirect:list";
 	}
 	
 	
-	
 	@GetMapping (value = "/list")
-	public String list() {
+	public String list(Model model) {
+		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+
+		ArrayList<BoardDto> bDtos = boardDao.listDao();
+		
+		model.addAttribute("bDtos", bDtos);
+		
 		return "boardlist";
+		
 	}
+		
+		
+	
 	
 	@PostMapping(value = "/joinOk")
 	public String joinOk(HttpServletRequest request, Model model) {
