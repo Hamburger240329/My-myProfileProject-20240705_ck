@@ -116,20 +116,24 @@ public class ProfileController {
 			criteria.setPageNum(Integer.parseInt(pageNum)); // 래퍼 클래스 사용(Integer.parseInt) - String 를 int 로 형변환
 			// 사용자가 클릭한 페이지 번호룰 criteria 객체 내 변수인 pageNum 값으로 셋팅
 		} 
+
 		
 		int total = boardDao.boardTotalCountDao(); // 게시판 내 모든 글의 총 개수
 		
 		PageDto pageDto = new PageDto(total, criteria);
 		
 		
+		int realEndPage = (int) Math.ceil(total*1.0 / criteria.getAmount());
 		
 		
+
 		
 		ArrayList<BoardDto> bDtos = boardDao.listDao(criteria.getAmount(), criteria.getPageNum());
 		
 		model.addAttribute("bDtos", bDtos);
 		model.addAttribute("pageDto", pageDto);
-		model.addAttribute("currPage", pageNum); // 현재 출력하고 있는 페이지 번호
+		model.addAttribute("currPage", criteria.getPageNum()); // 현재 출력하고 있는 페이지 번호
+		model.addAttribute("realEndPage", realEndPage);
 		
 		return "boardlist";
 		
