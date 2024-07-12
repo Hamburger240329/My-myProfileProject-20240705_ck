@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.ham1142.Profile.dao.BoardDao;
 import com.ham1142.Profile.dao.MemberDao;
 import com.ham1142.Profile.dto.BoardDto;
+import com.ham1142.Profile.dto.Criteria;
 import com.ham1142.Profile.dto.MemberDto;
+import com.ham1142.Profile.dto.PageDto;
 
 import jakarta.security.auth.message.callback.PrivateKeyCallback.Request;
 import jakarta.servlet.http.HttpServletRequest;
@@ -104,13 +106,29 @@ public class ProfileController {
 	
 	
 	@GetMapping (value = "/list")
-	public String list(Model model) {
+	public String list(Model model, Criteria criteria, HttpServletRequest request) {
 		
 		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
 
+		String pageNum = request.getParameter("pageNum"); // 사용자가 클릭한 게시판 페이지 번호
+		
+		if(pageNum != null) { // 게시판 메뉴를 클릭해서 게시판 목록이 보일 경우 pageNum 값이 없으므로 에러 발생
+			criteria.setPageNum(Integer.parseInt(pageNum)); // 래퍼 클래스 사용(Integer.parseInt) - String 를 int 로 형변환
+			// 사용자가 클릭한 페이지 번호룰 criteria 객체 내 변수인 pageNum 값으로 셋팅
+		} 
+		
+		int total = boardDao.boardTotalCountDao(); // 게시판 내 모든 글의 총 개수
+		
+		PageDto pageDto = new PageDto(total, criteria);
+		
+		
+		
+		
+		
 		ArrayList<BoardDto> bDtos = boardDao.listDao();
 		
 		model.addAttribute("bDtos", bDtos);
+		model.addAttribute("pageDto", pageDto);
 		
 		return "boardlist";
 		

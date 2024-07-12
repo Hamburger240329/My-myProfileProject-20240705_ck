@@ -16,4 +16,7 @@ public interface BoardDao {
 	public void contentModifyDao(String bnum, String btitle, String bcontent);//글 수정
 	
 	public void contentDeleteDao(String bnum); // 글 삭제
+	
+	public int boardTotalCountDao(); //게시판에 저장된 모든 글의 총 개수
+	
 }
