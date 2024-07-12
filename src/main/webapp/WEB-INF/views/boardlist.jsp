@@ -31,8 +31,8 @@
 					<tr>
 						<th class="board_title" width="9%">번호</th>
 						<th class="board_title" width="11%">아이디</th>
-						<th class="board_title" width="10%">이름</th>
-						<th class="board_title" width="55%">제목</th>
+						<th class="board_title" width="13%">이름</th>
+						<th class="board_title" width="50%">제목</th>
 						<th class="board_title" width="15%">등록일</th>
 					</tr>
 					<c:forEach items="${bDtos }" var="bDto">
@@ -60,8 +60,23 @@
 						<td colspan="5" align="right"> 
 							<input class="btn01"  type="button" value="글쓰기" onclick="javascript:window.location.href='write'">
 					</tr>
-					
-				</table>		
+					<!-- 페이징 페이지 표시 출력 -->
+					<tr>
+						<td colspan="5" align="center">
+							<c:if test="${pageDto.prev }">
+								<a href="list?pageNum=${pageDto.startPage-10}">◀</a>
+							</c:if>
+							&nbsp;&nbsp;
+							<c:forEach begin="${pageDto.startPage }" end="${pageDto.endPage}" var="pageNumber">
+								<a href="list?pageNum=${pageNumber }">${pageNumber }</a>
+							</c:forEach>
+							&nbsp;&nbsp;
+							<c:if test="${pageDto.next }">
+								<a href="list?pageNum=${pageDto.startPage+10}">▶</a>
+							</c:if>
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 	</table>	
