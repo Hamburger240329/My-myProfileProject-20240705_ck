@@ -77,8 +77,8 @@
 					<tr>
 						<td colspan="5" align="center">
 							<c:if test="${pageDto.prev }">
-								<a class="pagelink" href="list?pageNum=1">◀◀</a>&nbsp;
-								<a class="pagelink" href="list?pageNum=${pageDto.startPage-10}">◀</a>
+								<a class="pagelink" href="list2?pageNum=1&searchKey=${searchKey}">◀◀</a>&nbsp;
+								<a class="pagelink" href="list2?pageNum=${pageDto.startPage-10}">◀</a>
 							</c:if>
 							&nbsp;&nbsp;
 							<c:forEach begin="${pageDto.startPage }" end="${pageDto.endPage}" var="pageNumber">
@@ -87,14 +87,14 @@
 										<span class="currpage">${pageNumber}</span>&nbsp;
 									</c:when>
 									<c:otherwise>
-										<a class="pagelink" href="list?pageNum=${pageNumber }">${pageNumber }&nbsp;</a>
+										<a class="pagelink" href="list2?pageNum=${pageNumber }&searchKey=${searchKey}">${pageNumber }&nbsp;</a>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
 							&nbsp;&nbsp;
 							<c:if test="${pageDto.next }">
-								<a class="pagelink" href="list?pageNum=${pageDto.startPage+10}">▶</a>&nbsp;
-								<a class="pagelink" href="list?pageNum=${realEndPage}">▶▶</a>
+								<a class="pagelink" href="list2?pageNum=${pageDto.startPage+10}&searchKey=${searchKey}">▶</a>&nbsp;
+								<a class="pagelink" href="list2?pageNum=${realEndPage}&searchKey=${searchKey}">▶▶</a>
 							</c:if>
 						</td>
 					</tr>

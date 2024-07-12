@@ -117,17 +117,12 @@ public class ProfileController {
 			// 사용자가 클릭한 페이지 번호룰 criteria 객체 내 변수인 pageNum 값으로 셋팅
 		} 
 
-		
 		int total = boardDao.boardTotalCountDao(); // 게시판 내 모든 글의 총 개수
 		
 		PageDto pageDto = new PageDto(total, criteria);
 		
-		
 		int realEndPage = (int) Math.ceil(total*1.0 / criteria.getAmount());
-		
-		
 
-		
 		ArrayList<BoardDto> bDtos = boardDao.listDao(criteria.getAmount(), criteria.getPageNum());
 		
 		model.addAttribute("bDtos", bDtos);
@@ -139,7 +134,44 @@ public class ProfileController {
 		
 	}
 		
+	
+	
+	
+	
+	@GetMapping (value = "/list2")
+	public String list2(Model model, Criteria criteria, HttpServletRequest request) {
 		
+		BoardDao boardDao = sqlSession.getMapper(BoardDao.class);
+
+		String pageNum = request.getParameter("pageNum"); // 사용자가 클릭한 게시판 페이지 번호
+		String searchKey = request.getParameter("searchKey");
+		
+		if(pageNum != null) { // 게시판 메뉴를 클릭해서 게시판 목록이 보일 경우 pageNum 값이 없으므로 에러 발생
+			criteria.setPageNum(Integer.parseInt(pageNum)); // 래퍼 클래스 사용(Integer.parseInt) - String 를 int 로 형변환
+			// 사용자가 클릭한 페이지 번호룰 criteria 객체 내 변수인 pageNum 값으로 셋팅
+		} 
+
+		int total = boardDao.searchResultTotalDao(searchKey);//검색된 게시물 총 개수
+		
+		PageDto pageDto = new PageDto(total, criteria);
+		
+		int realEndPage = (int) Math.ceil(total*1.0 / criteria.getAmount());
+
+		//ArrayList<BoardDto> bDtos = boardDao.listDao(criteria.getAmount(), criteria.getPageNum());
+		ArrayList<BoardDto> bDtos = boardDao.searchkeyDao(criteria.getAmount(), criteria.getPageNum(), searchKey);
+		
+		model.addAttribute("bDtos", bDtos);
+		model.addAttribute("pageDto", pageDto);
+		model.addAttribute("currPage", criteria.getPageNum()); // 현재 출력하고 있는 페이지 번호
+		model.addAttribute("realEndPage", realEndPage);
+		model.addAttribute("searchKey", searchKey);
+		
+		return "boardlist2";
+		
+	}
+		
+	
+	
 	
 	
 	@PostMapping(value = "/joinOk")

@@ -52,6 +52,19 @@ input.btn01 {
 	background-color: #abc422;
 }
 
+
+input.search_btn01 {
+	border : 2px solid #3D550C;
+	width: 100px;
+	height: 35px;
+	font-family: malgun;
+	font-size: 16px;
+	padding: 5px;
+	background-color: #cce151;
+}
+
+
+
 td.content_box {
 	height: 509px;
 	background-color: #ECF87F;

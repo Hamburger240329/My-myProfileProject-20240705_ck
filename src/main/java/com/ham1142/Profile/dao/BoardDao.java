@@ -19,4 +19,7 @@ public interface BoardDao {
 	
 	public int boardTotalCountDao(); //게시판에 저장된 모든 글의 총 개수
 	
+	public ArrayList<BoardDto> searchkeyDao(int amount, int pageNum, String searchKey); // 게시판 제목 또는 내용 키워드 검색
+	
+	public int searchResultTotalDao(String searchKey); // 게시판 검색 결과 글 총 개수
 }

@@ -15,14 +15,32 @@
 	
 	<select id="listDao" resultType="com.ham1142.Profile.dto.BoardDto">
 		SELECT * FROM
-			
 			(SELECT A.*, CEIL(ROWNUM/#{param1})pagenum, ROWNUM
 				FROM
 					(SELECT * FROM pboard ORDER BY bnum DESC)A)
 						WHERE pagenum = #{param2}
-
-					 
 	</select>
+	
+	
+	<!-- 게시판 검색 결과 리스트 -->
+	
+	<select id="searchkeyDao" resultType="com.ham1142.Profile.dto.BoardDto">
+		SELECT * FROM
+			(SELECT A.*, CEIL((ROWNUM/#{param1}))pagenum, ROWNUM
+				FROM
+					(SELECT * FROM pboard WHERE btitle LIKE '%' || #{param3} || '%' OR bcontent LIKE '%' || #{param3} || '%'ORDER BY bnum DESC)A)
+						WHERE pagenum = #{param2}
+	</select>
+
+	
+	<!-- 게시판 검색 결과 총 개수 -->
+
+	<select id="searchResultTotalDao" resultType="int">
+		SELECT count(*) FROM pboard WHERE btitle LIKE '%' || #{param1} || '%' OR bcontent LIKE '%' || #{param1} || '%'
+			
+	</select>
+
+	
 	
 	<!-- 게시판 글 내용 보기 -->
 	
@@ -46,9 +64,7 @@
 	<select id="boardTotalCountDao" resultType="int">
 		SELECT count(*) FROM pboard
 	</select>
-	
-	
-	
+
 </mapper>
 	
 	
