@@ -41,3 +41,52 @@ a.contentlink:hover{
 	color: #000000;
 	font-weight: bold;
 }
+
+
+
+
+th.board_title {
+	font-family: malgun, Arial;	
+	font-size: 20px;
+	background-color: #81B622; 
+	border: 1px solid #3C550C;
+	color: #FFFFFF;
+}
+
+
+
+
+
+a.pagelink:link{
+	font-family: malgun, Arial;	
+	font-size: 17px;
+	color: #000000;
+	text-decoration: none;
+}
+
+a.pagelink:visited{
+	font-family: malgun, Arial;	
+	font-size: 17px;
+	color: #000000;
+	text-decoration: none;
+}
+
+
+a.pagelink:hover{
+	font-family: malgun, Arial;	
+	font-size: 17px;
+	color: #000000;
+	font-weight: bold;
+}
+
+
+span.currpage{
+	font-family: malgun, Arial;	
+	font-size: 17px;
+	border : 1px solid #000000;
+	background-color : #000000; 
+	color : #ffffff;
+	font-weight: bold;
+	padding: 5px;
+}
+

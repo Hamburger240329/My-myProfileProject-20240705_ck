@@ -129,6 +129,7 @@ public class ProfileController {
 		
 		model.addAttribute("bDtos", bDtos);
 		model.addAttribute("pageDto", pageDto);
+		model.addAttribute("currPage", pageNum); // 현재 출력하고 있는 페이지 번호
 		
 		return "boardlist";
 		
